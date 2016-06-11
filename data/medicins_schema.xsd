@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.medicine.com"
+        xmlns:tns="http://www.medicine.com"
+        elementFormDefault="qualified">
+
+    <element name="AllMedicine">
+        <complexType>
+            <sequence>
+                <element ref="tns:medicine" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="medicine" type="tns:Medicine" abstract="true"/>
+    <element name="children-medicine" type="tns:Children-medicine" substitutionGroup="tns:medicine"/>
+    <element name="adult-medicine" type="tns:Adult-medicine" substitutionGroup="tns:medicine"/>
+
+    <complexType name="Medicine">
+        <sequence>
+            <element name="group">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="antibiotic"/>
+                        <enumeration value="painkiller"/>
+                        <enumeration value="vitamin"/>
+                        <enumeration value="fever_reducer"/>
+                        <enumeration value="antiviral"/>
+                        <enumeration value="resolvent"/>
+                    </restriction>
+                </simpleType>
+            </element>
+
+            <element name="analog" minOccurs="1" maxOccurs="unbounded">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+
+            <element name="version" type="tns:Version"/>
+        </sequence>
+        <attribute name="name" type="string" use="optional" default="Nameless"/>
+        <attribute name="id" use="required">
+            <simpleType>
+                <restriction base="ID">
+                    <pattern value="[a-z]\w{4,8}"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+
+    <complexType name="Version">
+        <sequence>
+            <element name="version_name">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+
+            <element name="producers" minOccurs="1" maxOccurs="unbounded">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="medicins_package" type="tns:Medicins-Package"/>
+            <element name="dosage" type="tns:Dosage"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Medicins-Package">
+        <sequence>
+            <element name="package-type">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="quantity">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="price">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Dosage">
+        <sequence>
+            <element name="prescribed-amount">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="frequency">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Children-medicine">
+        <complexContent>
+            <extension base="tns:Medicine">
+                <sequence>
+                    <element name="age-from" type="integer"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Adult-medicine">
+        <complexContent>
+            <extension base="tns:Medicine">
+                <sequence>
+                    <element name="alcohol-allowed" type="boolean"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+</schema>
