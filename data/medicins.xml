@@ -9,17 +9,17 @@
         <ns:version>
             <ns:version_name>Syrop</ns:version_name>
             <ns:producers>OOO Lekofarm</ns:producers>
-            <ns:medicinsPackage>
-                <ns:package-type>OOO Lekofarm</ns:package-type>
+            <ns:medicins_package>
+                <ns:package_type>OOO Lekofarm</ns:package_type>
                 <ns:quantity>200</ns:quantity>
                 <ns:price>150</ns:price>
-            </ns:medicinsPackage>
+            </ns:medicins_package>
             <ns:dosage>
-                <ns:prescribed-amount>20</ns:prescribed-amount>
+                <ns:prescribed_amount>20</ns:prescribed_amount>
                 <ns:frequency>3</ns:frequency>
             </ns:dosage>
         </ns:version>
-        <ns:age-from>2</ns:age-from>
+        <ns:age_from>2</ns:age_from>
     </ns:children-medicine>
 
     <ns:children-medicine name="hshdsd" id="f5445d">
@@ -28,17 +28,17 @@
         <ns:version>
             <ns:version_name>Syrop</ns:version_name>
             <ns:producers>OOO Lekofarm</ns:producers>
-            <ns:medicinsPackage>
-                <ns:package-type>OOO Lekofarm</ns:package-type>
+            <ns:medicins_package>
+                <ns:package_type>OOO Lekofarm</ns:package_type>
                 <ns:quantity>200</ns:quantity>
                 <ns:price>150</ns:price>
-            </ns:medicinsPackage>
+            </ns:medicins_package>
             <ns:dosage>
-                <ns:prescribed-amount>20</ns:prescribed-amount>
+                <ns:prescribed_amount>20</ns:prescribed_amount>
                 <ns:frequency>3</ns:frequency>
             </ns:dosage>
         </ns:version>
-        <ns:age-from>2</ns:age-from>
+        <ns:age_from>2</ns:age_from>
     </ns:children-medicine>
 
 </ns:AllMedicine>

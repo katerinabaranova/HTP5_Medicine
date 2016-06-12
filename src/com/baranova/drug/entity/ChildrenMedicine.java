@@ -11,7 +11,6 @@ public class ChildrenMedicine extends Medicine{
     public String toString() {
         return "ChildrenMedicine{" +
                 "name='" + super.getName() + '\'' +
-                ", pharm='" + super.getPharm() + '\'' +
                 ", group=" + super.getGroup() +
                 ", analogs=" + super.getAnalogs() +
                 ", versions=" + super.getVersion() +

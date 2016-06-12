@@ -2,33 +2,34 @@ package com.baranova.drug.entity;
 
 import com.baranova.drug.enums_class.MedicineGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Medicine {
+public abstract class Medicine {
 
     private String name;
-    private String pharm;
-    private MedicineGroup group;
-    private List<String> analogs;
-    private Version version;
+    private String medicineId;
+    private String group;
+    private List<String> analogs=new ArrayList<>();
+    private Version version=new Version();
 
     public String getName() {return name;}
-    public String getPharm() {return pharm;}
-    public MedicineGroup getGroup() {return group;}
+    public String getMedicineId(){return medicineId;}
+    public String getGroup() {return group;}
     public List<String> getAnalogs() {return analogs;}
     public Version getVersion() {return version;}
 
     public void setName(String name) {this.name = name;}
-    public void setPharm(String pharm) {this.pharm = pharm;}
-    public void setGroup(MedicineGroup group) {this.group = group;}
+    public void setMedicineId(String medicineId){this.medicineId=medicineId;}
+    public void setGroup(String group) {this.group = group;}
     public void setAnalogs(List<String> analogs) {this.analogs = analogs;}
-    public void setVersions(Version version) {this.version = version;}
+    public void setVersion(Version version) {this.version = version;}
 
+    public void addAnalog(String analog){ analogs.add(analog);}
     @Override
     public String toString() {
         return "Medicins{" +
                 "name='" + name + '\'' +
-                ", pharm='" + pharm + '\'' +
                 ", group=" + group +
                 ", analogs=" + analogs +
                 ", version=" + version +

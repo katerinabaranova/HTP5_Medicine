@@ -76,7 +76,7 @@
 
     <complexType name="Medicins-Package">
         <sequence>
-            <element name="package-type">
+            <element name="package_type">
                 <simpleType>
                     <restriction base="string">
                         <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
@@ -102,7 +102,7 @@
 
     <complexType name="Dosage">
         <sequence>
-            <element name="prescribed-amount">
+            <element name="prescribed_amount">
                 <simpleType>
                     <restriction base="integer">
                         <minInclusive value="1"/>
@@ -123,7 +123,7 @@
         <complexContent>
             <extension base="tns:Medicine">
                 <sequence>
-                    <element name="age-from" type="integer"/>
+                    <element name="age_from" type="integer"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -133,7 +133,7 @@
         <complexContent>
             <extension base="tns:Medicine">
                 <sequence>
-                    <element name="alcohol-allowed" type="boolean"/>
+                    <element name="alcohol_allowed" type="boolean"/>
                 </sequence>
             </extension>
         </complexContent>

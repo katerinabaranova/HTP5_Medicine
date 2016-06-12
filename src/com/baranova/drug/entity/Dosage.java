@@ -6,7 +6,7 @@ public class Dosage {
 
     private int prescribedAmount;
     private int frequency;
-
+    //TODO частоту сделать byte
     public int getPrescribedAmount() {return prescribedAmount;}
     public int getFrequency() {return frequency;}
 
