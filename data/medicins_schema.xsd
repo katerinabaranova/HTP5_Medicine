@@ -13,8 +13,8 @@
     </element>
 
     <element name="medicine" type="tns:Medicine" abstract="true"/>
-    <element name="children-medicine" type="tns:Children-medicine" substitutionGroup="tns:medicine"/>
-    <element name="adult-medicine" type="tns:Adult-medicine" substitutionGroup="tns:medicine"/>
+    <element name="children_medicine" type="tns:Children_medicine" substitutionGroup="tns:medicine"/>
+    <element name="adult_medicine" type="tns:Adult_medicine" substitutionGroup="tns:medicine"/>
 
     <complexType name="Medicine">
         <sequence>
@@ -57,7 +57,12 @@
             <element name="version_name">
                 <simpleType>
                     <restriction base="string">
-                        <pattern value="[A-Z][a-zA-z\s]{1,30}"/>
+                        <enumeration value="pill"/>
+                        <enumeration value="syrop"/>
+                        <enumeration value="capsule"/>
+                        <enumeration value="suspension"/>
+                        <enumeration value="injection"/>
+                        <enumeration value="balm"/>
                     </restriction>
                 </simpleType>
             </element>
@@ -119,7 +124,7 @@
         </sequence>
     </complexType>
 
-    <complexType name="Children-medicine">
+    <complexType name="Children_medicine">
         <complexContent>
             <extension base="tns:Medicine">
                 <sequence>
@@ -129,7 +134,7 @@
         </complexContent>
     </complexType>
 
-    <complexType name="Adult-medicine">
+    <complexType name="Adult_medicine">
         <complexContent>
             <extension base="tns:Medicine">
                 <sequence>

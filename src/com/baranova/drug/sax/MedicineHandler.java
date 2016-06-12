@@ -4,6 +4,8 @@ import com.baranova.drug.entity.AdultMedicine;
 import com.baranova.drug.entity.ChildrenMedicine;
 import com.baranova.drug.entity.Medicine;
 import com.baranova.drug.enums_class.MedicineEnum;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -12,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MedicineHandler extends DefaultHandler {
-
+    static final Logger LOG= LogManager.getLogger();
     private Set<Medicine> allmedicine;
     private Medicine current = null;
     private MedicineEnum currentEnum = null;
@@ -23,13 +25,20 @@ public class MedicineHandler extends DefaultHandler {
     }
     public Set<Medicine> getAllmedicine() {return allmedicine;}
 
+    public void startDocument() {
+        LOG.info("SAX parse starts");
+    }
+
+    public void endDocument() {
+        LOG.info("SAX parse ends");
+    }
+
     public void startElement(String uri, String localName, String qName, Attributes attrs) {
-        if ("children-medicine".equals(localName)) {
+        if ("children_medicine".equals(localName)) {
             current = new ChildrenMedicine();
             current.setName(attrs.getValue(0));
-            if (attrs.getLength() == 2) {
-                current.setMedicineId(attrs.getValue(1));
-            }
+            current.setMedicineId(attrs.getValue(1));
+
         }
         else
         { MedicineEnum temp = MedicineEnum.valueOf(localName.toUpperCase());
@@ -40,7 +49,7 @@ public class MedicineHandler extends DefaultHandler {
     }
 
     public void endElement(String uri, String localName, String qName) {
-        if ("children-medicine".equals(localName)) {
+        if ("children_medicine".equals(localName)) {
             allmedicine.add(current);
         }
     }

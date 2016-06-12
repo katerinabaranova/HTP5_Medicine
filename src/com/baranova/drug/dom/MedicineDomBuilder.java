@@ -39,15 +39,21 @@ public class MedicineDomBuilder {
             //parsing XML-документа и создание древовидной структуры
             doc = docBuilder.parse(fileName);
             Element root = doc.getDocumentElement();
-            System.out.println(root);
             // получение списка дочерних элементов <student>
-            NodeList allmedicineList = root.getElementsByTagName("ns:children-medicine");
-            System.out.println(allmedicineList.getLength());
-            for (int i = 0; i < allmedicineList.getLength(); i++) {
-                Element medicineElement = (Element) allmedicineList.item(i);
+            NodeList childMedicineList = root.getElementsByTagName("ns:children-medicine");
+            for (int i = 0; i < childMedicineList.getLength(); i++) {
+                Element medicineElement = (Element) childMedicineList.item(i);
                 ChildrenMedicine childrenMedicine=buildChildrenMedicine(medicineElement);
                 allmedicine.add(childrenMedicine);
             }
+
+            NodeList adultMedicineList = root.getElementsByTagName("ns:adult-medicine");
+            for (int i = 0; i < adultMedicineList.getLength(); i++) {
+                Element medicineElement = (Element) adultMedicineList.item(i);
+                AdultMedicine adultMedicine=buildAdultMedicine(medicineElement);
+                allmedicine.add(adultMedicine);
+            }
+
         }
         catch (IOException e) {
             System.err.println("File error or I/O error: " + e);
@@ -63,6 +69,7 @@ public class MedicineDomBuilder {
         childrenMedicine.setMedicineId(medicineElement.getAttribute("id"));
         childrenMedicine.setGroup(getElementTextContent(medicineElement, "ns:group"));
         childrenMedicine.getAnalogs().add(getElementTextContent(medicineElement,"ns:analog"));
+        childrenMedicine.setAgeFrom(Integer.parseInt(getElementTextContent(medicineElement,"ns:age_from")));
         Version version=childrenMedicine.getVersion();
 
         Element versionELement = (Element) medicineElement.getElementsByTagName("ns:version").item(0);
@@ -82,6 +89,31 @@ public class MedicineDomBuilder {
         return childrenMedicine;
     }
 
+    private AdultMedicine buildAdultMedicine(Element medicineElement) {
+        AdultMedicine adultMedicine = new AdultMedicine();
+        adultMedicine.setName(medicineElement.getAttribute("name"));
+        adultMedicine.setMedicineId(medicineElement.getAttribute("id"));
+        adultMedicine.setGroup(getElementTextContent(medicineElement, "ns:group"));
+        adultMedicine.getAnalogs().add(getElementTextContent(medicineElement,"ns:analog"));
+        adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(getElementTextContent(medicineElement,"ns:alcohol_allowed")));
+        Version version=adultMedicine.getVersion();
+
+        Element versionELement = (Element) medicineElement.getElementsByTagName("ns:version").item(0);
+        version.setVersionName(getElementTextContent(versionELement, "ns:version_name"));
+        version.getProducers().add(getElementTextContent(versionELement,"ns:producers"));
+
+        Dosage dosage=version.getDosage();
+        Element dosageElement=(Element) versionELement.getElementsByTagName("ns:dosage").item(0);
+        dosage.setPrescribedAmount(Integer.parseInt(getElementTextContent(dosageElement,"ns:prescribed_amount")));
+        dosage.setFrequency(Integer.parseInt(getElementTextContent(dosageElement,"ns:frequency")));
+
+        MedicinsPackage medicinsPackage=version.getMedicinsPackage();
+        Element packElement=(Element) versionELement.getElementsByTagName("ns:medicins_package").item(0);
+        medicinsPackage.setPackageType(getElementTextContent(packElement, "ns:package_type"));
+        medicinsPackage.setQuantity(Integer.parseInt(getElementTextContent(packElement, "ns:quantity")));
+        medicinsPackage.setPrice(Integer.parseInt(getElementTextContent(packElement,"ns:price")));
+        return adultMedicine;
+    }
     // получение текстового содержимого тега
     private static String getElementTextContent(Element element, String elementName) {
         NodeList nList = element.getElementsByTagName(elementName);
@@ -89,4 +121,5 @@ public class MedicineDomBuilder {
         String text = node.getTextContent();
         return text;
     }
+
 }

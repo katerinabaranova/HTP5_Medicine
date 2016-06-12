@@ -3,42 +3,63 @@
               xmlns:ns="http://www.medicine.com"
               xsi:schemaLocation="http://www.medicine.com medicins_schema.xsd">
 
-    <ns:children-medicine name="Tyilinol" id="a546sd">
+    <ns:children_medicine name="Tyilinol" id="a546sd">
         <ns:group>fever_reducer</ns:group>
         <ns:analog>Paracetomol</ns:analog>
+        <ns:analog>Ibyprophen</ns:analog>
         <ns:version>
-            <ns:version_name>Syrop</ns:version_name>
-            <ns:producers>OOO Lekofarm</ns:producers>
+            <ns:version_name>syrop</ns:version_name>
+            <ns:producers>Acadia Pharmaceuticals</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>OOO Lekofarm</ns:package_type>
+                <ns:package_type>Bottle</ns:package_type>
                 <ns:quantity>200</ns:quantity>
-                <ns:price>150</ns:price>
+                <ns:price>30</ns:price>
             </ns:medicins_package>
             <ns:dosage>
-                <ns:prescribed_amount>20</ns:prescribed_amount>
+                <ns:prescribed_amount>5</ns:prescribed_amount>
                 <ns:frequency>3</ns:frequency>
             </ns:dosage>
         </ns:version>
         <ns:age_from>2</ns:age_from>
-    </ns:children-medicine>
+    </ns:children_medicine>
 
-    <ns:children-medicine name="hshdsd" id="f5445d">
-        <ns:group>fever_reducer</ns:group>
-        <ns:analog>Paracetomol</ns:analog>
+    <ns:children_medicine name="Centrum" id="f5445d">
+        <ns:group>vitamin</ns:group>
+        <ns:analog>VitaminKids</ns:analog>
         <ns:version>
-            <ns:version_name>Syrop</ns:version_name>
-            <ns:producers>OOO Lekofarm</ns:producers>
+            <ns:version_name>pill</ns:version_name>
+            <ns:producers>Alphapharm</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>OOO Lekofarm</ns:package_type>
-                <ns:quantity>200</ns:quantity>
-                <ns:price>150</ns:price>
+                <ns:package_type>Container</ns:package_type>
+                <ns:quantity>50</ns:quantity>
+                <ns:price>15</ns:price>
             </ns:medicins_package>
             <ns:dosage>
-                <ns:prescribed_amount>20</ns:prescribed_amount>
-                <ns:frequency>3</ns:frequency>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>1</ns:frequency>
             </ns:dosage>
         </ns:version>
-        <ns:age_from>2</ns:age_from>
-    </ns:children-medicine>
+        <ns:age_from>1</ns:age_from>
+    </ns:children_medicine>
+
+    <ns:adult_medicine name="IcyHot" id="g6782h">
+        <ns:group>painkiller</ns:group>
+        <ns:analog>Kapsikam</ns:analog>
+        <ns:version>
+            <ns:version_name>balm</ns:version_name>
+            <ns:producers>Chattem Inc</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Tube</ns:package_type>
+                <ns:quantity>85</ns:quantity>
+                <ns:price>20</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>2</ns:prescribed_amount>
+                <ns:frequency>5</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
 
 </ns:AllMedicine>

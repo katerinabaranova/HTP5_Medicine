@@ -9,12 +9,12 @@ public class ChildrenMedicine extends Medicine{
 
     @Override
     public String toString() {
-        return "ChildrenMedicine{" +
-                "name='" + super.getName() + '\'' +
-                ", group=" + super.getGroup() +
-                ", analogs=" + super.getAnalogs() +
-                ", versions=" + super.getVersion() +
-                ", ageFrom=" + ageFrom +
-                '}';
+        StringBuilder childMed=new StringBuilder("ChildrenMedicine{");
+        childMed.append("name='").append(super.getName());
+        childMed.append(", group=").append(super.getGroup());
+        childMed.append(", analogs=").append(super.getAnalogs());
+        childMed.append(", ageFrom=").append(ageFrom).append(",").append("\n");
+        childMed.append("\t\t versions=").append(super.getVersion());
+        return childMed.toString();
     }
 }

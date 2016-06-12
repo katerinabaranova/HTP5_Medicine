@@ -4,8 +4,8 @@ public enum MedicineEnum {
     ALLMEDICINE("allmedicine"),
     NAME("name"),
     ID("id"),
-    CHILDREN_MEDICINE("children-medicine"),
-    ADULT_MEDICINE("adult-medicine"),
+    CHILDREN_MEDICINE("children_medicine"),
+    ADULT_MEDICINE("adult_medicine"),
     GROUP("group"),
     ANALOG("analog"),
     VERSION("version"),
@@ -20,9 +20,6 @@ public enum MedicineEnum {
     FREQUENCY("frequency"),
     AGE_FROM("age-from"),
     ALCOHOL_ALLOWED("alcohol-allowed");
-
-
-
 
     private String value;
     private MedicineEnum(String value) {this.value = value;}
