@@ -15,10 +15,8 @@ public class MedicineSaxBuilder {
     private MedicineHandler medicineHandler;
     private XMLReader reader;
     public MedicineSaxBuilder() {
-        // создание SAX-анализатора
         medicineHandler= new MedicineHandler();
-        try
-        {// создание объекта-обработчика
+        try {
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(medicineHandler);
         }
@@ -32,8 +30,7 @@ public class MedicineSaxBuilder {
     }
 
     public void buildSetAllmedicine(String fileName) {
-        try
-        {// разбор XML-документа
+        try {
             reader.parse(fileName);
         }
         catch (SAXException e) {
