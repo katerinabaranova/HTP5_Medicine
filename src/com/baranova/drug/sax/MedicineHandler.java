@@ -3,7 +3,7 @@ package com.baranova.drug.sax;
 import com.baranova.drug.entity.AdultMedicine;
 import com.baranova.drug.entity.ChildrenMedicine;
 import com.baranova.drug.entity.Medicine;
-import com.baranova.drug.enums_class.MedicineEnum;
+import com.baranova.drug.enums.MedicineEnum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
@@ -16,8 +16,8 @@ import java.util.Set;
 public class MedicineHandler extends DefaultHandler {
     static final Logger LOG= LogManager.getLogger();
     private Set<Medicine> allmedicine;
-    private Medicine current = null;
-    private MedicineEnum currentEnum = null;
+    private Medicine current;
+    private MedicineEnum currentEnum;
     private EnumSet<MedicineEnum> withText;
     public MedicineHandler() {
         allmedicine = new HashSet<Medicine>();

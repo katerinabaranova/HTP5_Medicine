@@ -1,7 +1,5 @@
 package com.baranova.drug.entity;
 
-import com.baranova.drug.enums_class.VersionName;
-
 import java.util.ArrayList;
 import java.util.List;
 

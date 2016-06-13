@@ -1,4 +1,4 @@
-package com.baranova.drug.enums_class;
+package com.baranova.drug.enums;
 
 
 public enum MedicineGroup {
