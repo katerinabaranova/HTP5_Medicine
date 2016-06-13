@@ -33,12 +33,16 @@ public class MedicineHandler extends DefaultHandler {
         LOG.info("SAX parse ends");
     }
 
+    @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) {
         if ("children_medicine".equals(localName)) {
             current = new ChildrenMedicine();
             current.setName(attrs.getValue(0));
             current.setMedicineId(attrs.getValue(1));
-
+        } else if ("adult_medicine".equals(localName)){
+            current= new AdultMedicine();
+            current.setName(attrs.getValue(0));
+            current.setMedicineId(attrs.getValue(1));
         }
         else
         { MedicineEnum temp = MedicineEnum.valueOf(localName.toUpperCase());
@@ -49,7 +53,7 @@ public class MedicineHandler extends DefaultHandler {
     }
 
     public void endElement(String uri, String localName, String qName) {
-        if ("children_medicine".equals(localName)) {
+        if ("children_medicine".equals(localName)||"adult_medicine".equals(localName)) {
             allmedicine.add(current);
         }
     }
