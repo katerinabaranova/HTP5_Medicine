@@ -59,55 +59,59 @@ public class MedicineHandler extends DefaultHandler {
     }
 
     public void characters(char[] ch, int start, int length) {
-        String s = new String(ch, start, length).trim();
-        if (currentEnum != null) {
-            switch (currentEnum) {
-                case GROUP:
-                    current.setGroup(s);
-                    break;
-                case ANALOG:
-                    current.getAnalogs().add(s);
-                    break;
-                case VERSION_NAME:
-                    current.getVersion().setVersionName(s);
-                    break;
-                case PRODUCERS:
-                    current.getVersion().getProducers().add(s);
-                    break;
-                case PACKAGE_TYPE:
-                    current.getVersion().getMedicinsPackage().setPackageType(s);
-                    break;
-                case QUANTITY:
-                    current.getVersion().getMedicinsPackage().setQuantity(Integer.parseInt(s));
-                    break;
-                case PRICE:
-                    current.getVersion().getMedicinsPackage().setPrice(Integer.parseInt(s));
-                    break;
-                case PRESCRIBED_AMOUNT:
-                    current.getVersion().getDosage().setPrescribedAmount(Integer.parseInt(s));
-                    break;
-                case FREQUENCY:
-                    current.getVersion().getDosage().setFrequency(Integer.parseInt(s));
-                    break;
-                case AGE_FROM:
-                    ChildrenMedicine childrenMedicine=(ChildrenMedicine) current;
-                    childrenMedicine.setAgeFrom(Integer.parseInt(s));
-                    break;
-                case ALCOHOL_ALLOWED:
-                    AdultMedicine adultMedicine=(AdultMedicine) current;
-                    adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(s));
-                    break;
-                case VERSION:
-                    break;
-                case MEDICINS_PACKAGE:
-                    break;
-                case DOSAGE:
-                    break;
-                default:
-                    throw new EnumConstantNotPresentException(currentEnum.getDeclaringClass(),currentEnum.name());
+        try {
+            String s = new String(ch, start, length).trim();
+            if (currentEnum != null) {
+                switch (currentEnum) {
+                    case GROUP:
+                        current.setGroup(s);
+                        break;
+                    case ANALOG:
+                        current.getAnalogs().add(s);
+                        break;
+                    case VERSION_NAME:
+                        current.getVersion().setVersionName(s);
+                        break;
+                    case PRODUCERS:
+                        current.getVersion().getProducers().add(s);
+                        break;
+                    case PACKAGE_TYPE:
+                        current.getVersion().getMedicinsPackage().setPackageType(s);
+                        break;
+                    case QUANTITY:
+                        current.getVersion().getMedicinsPackage().setQuantity(Integer.parseInt(s));
+                        break;
+                    case PRICE:
+                        current.getVersion().getMedicinsPackage().setPrice(Integer.parseInt(s));
+                        break;
+                    case PRESCRIBED_AMOUNT:
+                        current.getVersion().getDosage().setPrescribedAmount(Integer.parseInt(s));
+                        break;
+                    case FREQUENCY:
+                        current.getVersion().getDosage().setFrequency(Integer.parseInt(s));
+                        break;
+                    case AGE_FROM:
+                        ChildrenMedicine childrenMedicine = (ChildrenMedicine) current;
+                        childrenMedicine.setAgeFrom(Integer.parseInt(s));
+                        break;
+                    case ALCOHOL_ALLOWED:
+                        AdultMedicine adultMedicine = (AdultMedicine) current;
+                        adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(s));
+                        break;
+                    case VERSION:
+                        break;
+                    case MEDICINS_PACKAGE:
+                        break;
+                    case DOSAGE:
+                        break;
+                    default:
+                        throw new EnumConstantNotPresentException(currentEnum.getDeclaringClass(), currentEnum.name());
                 }
+            }
+            currentEnum = null;
+        } catch (EnumConstantNotPresentException e) {
+            LOG.error("Wrong case");
         }
-        currentEnum= null;
     }
 }
 
