@@ -70,7 +70,6 @@ public class MedicineStaxBuilder extends AbstractMedicineBuilder {
     }
 
     private Medicine buildChildMedicine(XMLStreamReader reader) throws XMLStreamException{
-        System.out.println("stax");
         ChildrenMedicine childrenMedicine=new ChildrenMedicine();
         childrenMedicine.setName(reader.getAttributeValue(null,MedicineEnum.NAME.getValue()));
         childrenMedicine.setMedicineId(reader.getAttributeValue(null,MedicineEnum.ID.getValue()));

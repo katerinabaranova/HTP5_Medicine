@@ -20,8 +20,6 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
     private Set<Medicine> allMedicine;
     private DocumentBuilder docBuilder;
     public MedicineDomBuilder() {
-        System.out.println("DOM");
-
         this.allMedicine = new HashSet<Medicine>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
@@ -31,33 +29,29 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
             System.err.println("Ошибка конфигурации парсера: " + e);
         }
     }
-    @Override
+
     public Set<Medicine> getAllMedicine() {
             return allMedicine;
         }
 
-    @Override
     public void buildSetAllMedicine(String fileName) {
         Document doc = null;
         try {
-            //parsing XML-документа и создание древовидной структуры
             doc = docBuilder.parse(fileName);
             Element root = doc.getDocumentElement();
-            // получение списка дочерних элементов <student>
-            NodeList childMedicineList = root.getElementsByTagName("ns:children-medicine");
+            NodeList childMedicineList = root.getElementsByTagName("ns:children_medicine");
             for (int i = 0; i < childMedicineList.getLength(); i++) {
                 Element medicineElement = (Element) childMedicineList.item(i);
                 ChildrenMedicine childrenMedicine=buildChildrenMedicine(medicineElement);
                 allMedicine.add(childrenMedicine);
             }
 
-            NodeList adultMedicineList = root.getElementsByTagName("ns:adult-medicine");
+            NodeList adultMedicineList = root.getElementsByTagName("ns:adult_medicine");
             for (int i = 0; i < adultMedicineList.getLength(); i++) {
                 Element medicineElement = (Element) adultMedicineList.item(i);
                 AdultMedicine adultMedicine=buildAdultMedicine(medicineElement);
                 allMedicine.add(adultMedicine);
             }
-
         }
         catch (IOException e) {
             System.err.println("File error or I/O error: " + e);
@@ -68,7 +62,6 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
     }
 
     private ChildrenMedicine buildChildrenMedicine(Element medicineElement) {
-        System.out.println("dom");
         ChildrenMedicine childrenMedicine = new ChildrenMedicine();
         childrenMedicine.setName(medicineElement.getAttribute("name"));
         childrenMedicine.setMedicineId(medicineElement.getAttribute("id"));

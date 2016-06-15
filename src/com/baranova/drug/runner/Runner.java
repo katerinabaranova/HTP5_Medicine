@@ -15,7 +15,7 @@ public class Runner {
 
     public static void main (String[] args){
         MedicineBuilderFactory medicineBuilderFactory = new MedicineBuilderFactory();
-        AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("dom");
+        AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("sax");
         builder.buildSetAllMedicine("data/medicins.xml");
         Set<Medicine> allMedicine=builder.getAllMedicine();
         for (Medicine medicine:allMedicine){
