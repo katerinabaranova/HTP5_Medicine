@@ -30,8 +30,8 @@ public abstract class Medicine {
                 "name='" + name + '\'' +
                 ", group=" + group +
                 ", analogs=" + analogs +
-                ", version=" + version +
-                '}';
+                ", " + version +
+                "}";
     }
 }
 

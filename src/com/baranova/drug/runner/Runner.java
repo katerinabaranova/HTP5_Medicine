@@ -14,12 +14,16 @@ public class Runner {
     static final Logger LOG= LogManager.getLogger();
 
     public static void main (String[] args){
-        MedicineBuilderFactory medicineBuilderFactory = new MedicineBuilderFactory();
-        AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("sax");
-        builder.buildSetAllMedicine("data/medicins.xml");
-        Set<Medicine> allMedicine=builder.getAllMedicine();
-        for (Medicine medicine:allMedicine){
-            System.out.println(medicine);
+        try {
+            MedicineBuilderFactory medicineBuilderFactory = new MedicineBuilderFactory();
+            AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("sax");
+            builder.buildSetAllMedicine("data/medicins.xml");
+            Set<Medicine> allMedicine = builder.getAllMedicine();
+            for (Medicine medicine : allMedicine) {
+                System.out.println(medicine);
+            }
+        }catch (IllegalArgumentException e){
+            LOG.error(e.getMessage());
         }
     }
 }

@@ -138,7 +138,7 @@ public class MedicineStaxBuilder extends AbstractMedicineBuilder {
                     break;
             }
         }
-        throw new  XMLStreamException("Unknown element in tag Child Medicine");
+        throw new  XMLStreamException("Unknown element in tag Adult Medicine");
     }
 
     private Version getXMLVersion(XMLStreamReader reader) throws XMLStreamException {

@@ -20,7 +20,7 @@ public class MedicineHandler extends DefaultHandler {
     private MedicineEnum currentEnum;
     private EnumSet<MedicineEnum> withText;
     public MedicineHandler() {
-        allmedicine = new HashSet<Medicine>();
+        allmedicine = new HashSet<>();
         withText = EnumSet.range(MedicineEnum.NAME, MedicineEnum.ALCOHOL_ALLOWED);
     }
     public Set<Medicine> getAllmedicine() {return allmedicine;}
@@ -98,19 +98,13 @@ public class MedicineHandler extends DefaultHandler {
                         AdultMedicine adultMedicine = (AdultMedicine) current;
                         adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(s));
                         break;
-                    case VERSION:
-                        break;
-                    case MEDICINS_PACKAGE:
-                        break;
-                    case DOSAGE:
-                        break;
                     default:
                         throw new EnumConstantNotPresentException(currentEnum.getDeclaringClass(), currentEnum.name());
                 }
             }
             currentEnum = null;
         } catch (EnumConstantNotPresentException e) {
-            LOG.error("Wrong case");
+            LOG.error("Wrong case"+e.getMessage());
         }
     }
 }

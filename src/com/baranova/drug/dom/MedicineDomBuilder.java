@@ -2,6 +2,8 @@ package com.baranova.drug.dom;
 
 import com.baranova.drug.creation.AbstractMedicineBuilder;
 import com.baranova.drug.entity.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,9 +18,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MedicineDomBuilder extends AbstractMedicineBuilder{
-
+    static final Logger LOG= LogManager.getLogger();
     private Set<Medicine> allMedicine;
     private DocumentBuilder docBuilder;
+
     public MedicineDomBuilder() {
         this.allMedicine = new HashSet<Medicine>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -26,7 +29,7 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
             docBuilder=factory.newDocumentBuilder();
         }
         catch (ParserConfigurationException e) {
-            System.err.println("Ошибка конфигурации парсера: " + e);
+            LOG.error("Parsing configuration error: " + e);
         }
     }
 
@@ -54,10 +57,10 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
             }
         }
         catch (IOException e) {
-            System.err.println("File error or I/O error: " + e);
+            LOG.error("File error or I/O error: " + e);
         }
         catch (SAXException e) {
-            System.err.println("Parsing failure: " + e);
+            LOG.error("Parsing failure: " + e);
         }
     }
 

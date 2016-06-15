@@ -2,6 +2,8 @@ package com.baranova.drug.validation;
 
 
 import com.baranova.drug.exception.MedicineErrorHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -14,8 +16,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorSAX {
+    static final Logger LOG= LogManager.getLogger();
 
     public static void main(String[] args){
+
         String filename = "data/medicins.xml";
         String schemaname = "data/medicins_schema.xsd";
         String logname = "log/log.txt";
@@ -31,11 +35,11 @@ public class ValidatorSAX {
             parser.parse(filename, new MedicineErrorHandler(logname));
             System.out.println(filename + " is valid");
         } catch (ParserConfigurationException e) {
-            System.err.println(filename + " config error: " + e.getMessage());
+            LOG.error(filename + " config error: " + e.getMessage());
         } catch (SAXException e) {
-            System.err.println(filename + " SAX error: " + e.getMessage());
+            LOG.error(filename + " SAX error: " + e.getMessage());
         } catch (IOException e) {
-            System.err.println("I/O error: " + e.getMessage());
+            LOG.error("I/O error: " + e.getMessage());
         }
     }
 }
