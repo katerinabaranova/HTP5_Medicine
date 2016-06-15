@@ -7,18 +7,19 @@ import java.util.Set;
 
 public abstract class AbstractMedicineBuilder {
     protected Set<Medicine> allMedicine;
+
     public AbstractMedicineBuilder() {
         allMedicine= new HashSet<Medicine>();
     }
 
-    public AbstractMedicineBuilder(Set<Medicine> students) {
-        this.allMedicine = students;
+    public AbstractMedicineBuilder(Set<Medicine> allMedicine) {
+        this.allMedicine = allMedicine;
     }
 
     public Set<Medicine> getAllMedicine() {
         return allMedicine;
     }
 
-    abstract public void buildSetStudents(String fileName);
+    abstract public void buildSetAllMedicine(String fileName);
 }
 

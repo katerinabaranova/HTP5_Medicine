@@ -1,6 +1,7 @@
 package com.baranova.drug.stax;
 
 
+import com.baranova.drug.creation.AbstractMedicineBuilder;
 import com.baranova.drug.entity.*;
 import com.baranova.drug.enums.MedicineEnum;
 import org.apache.logging.log4j.LogManager;
@@ -17,20 +18,22 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MedicineStaxBuilder {
+public class MedicineStaxBuilder extends AbstractMedicineBuilder {
     static final Logger LOG= LogManager.getLogger();
-    private HashSet <Medicine> allmedicine=new HashSet<>();
+    private HashSet <Medicine> allMedicine =new HashSet<>();
     private XMLInputFactory inputFactory;
 
     public MedicineStaxBuilder(){
         inputFactory=XMLInputFactory.newInstance();
     }
 
+    @Override
     public Set<Medicine> getAllMedicine(){
-        return allmedicine;
+        return allMedicine;
     }
 
-    public void buildSetMedicine(String filename){
+    @Override
+    public void buildSetAllMedicine(String filename){
         FileInputStream inputStream=null;
         XMLStreamReader reader=null;
         String name;
@@ -43,11 +46,11 @@ public class MedicineStaxBuilder {
                     name=reader.getLocalName();
                     if (MedicineEnum.valueOf(name.toUpperCase())==MedicineEnum.CHILDREN_MEDICINE){
                         Medicine childMedicine=buildChildMedicine(reader);
-                        allmedicine.add(childMedicine);
+                        allMedicine.add(childMedicine);
                     }
                     if (MedicineEnum.valueOf(name.toUpperCase())==MedicineEnum.ADULT_MEDICINE){
                         Medicine adultMedicine=buildAdultMedicine(reader);
-                        allmedicine.add(adultMedicine);
+                        allMedicine.add(adultMedicine);
                     }
                 }
             }
@@ -67,6 +70,7 @@ public class MedicineStaxBuilder {
     }
 
     private Medicine buildChildMedicine(XMLStreamReader reader) throws XMLStreamException{
+        System.out.println("stax");
         ChildrenMedicine childrenMedicine=new ChildrenMedicine();
         childrenMedicine.setName(reader.getAttributeValue(null,MedicineEnum.NAME.getValue()));
         childrenMedicine.setMedicineId(reader.getAttributeValue(null,MedicineEnum.ID.getValue()));

@@ -1,5 +1,6 @@
 package com.baranova.drug.dom;
 
+import com.baranova.drug.creation.AbstractMedicineBuilder;
 import com.baranova.drug.entity.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -14,26 +15,29 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MedicineDomBuilder {
-    private Set<Medicine> allmedicine;
+public class MedicineDomBuilder extends AbstractMedicineBuilder{
+
+    private Set<Medicine> allMedicine;
     private DocumentBuilder docBuilder;
     public MedicineDomBuilder() {
-        this.allmedicine = new HashSet<Medicine>();
-        // создание DOM-анализатора
+        System.out.println("DOM");
+
+        this.allMedicine = new HashSet<Medicine>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            try {
-                docBuilder=factory.newDocumentBuilder();
-            }
-            catch (ParserConfigurationException e) {
-                System.err.println("Ошибка конфигурации парсера: " + e);
-            }
+        try {
+            docBuilder=factory.newDocumentBuilder();
+        }
+        catch (ParserConfigurationException e) {
+            System.err.println("Ошибка конфигурации парсера: " + e);
+        }
+    }
+    @Override
+    public Set<Medicine> getAllMedicine() {
+            return allMedicine;
         }
 
-        public Set<Medicine> getAllmedicine() {
-            return allmedicine;
-        }
-
-    public void buildSetAllmedicine(String fileName) {
+    @Override
+    public void buildSetAllMedicine(String fileName) {
         Document doc = null;
         try {
             //parsing XML-документа и создание древовидной структуры
@@ -44,14 +48,14 @@ public class MedicineDomBuilder {
             for (int i = 0; i < childMedicineList.getLength(); i++) {
                 Element medicineElement = (Element) childMedicineList.item(i);
                 ChildrenMedicine childrenMedicine=buildChildrenMedicine(medicineElement);
-                allmedicine.add(childrenMedicine);
+                allMedicine.add(childrenMedicine);
             }
 
             NodeList adultMedicineList = root.getElementsByTagName("ns:adult-medicine");
             for (int i = 0; i < adultMedicineList.getLength(); i++) {
                 Element medicineElement = (Element) adultMedicineList.item(i);
                 AdultMedicine adultMedicine=buildAdultMedicine(medicineElement);
-                allmedicine.add(adultMedicine);
+                allMedicine.add(adultMedicine);
             }
 
         }
@@ -64,6 +68,7 @@ public class MedicineDomBuilder {
     }
 
     private ChildrenMedicine buildChildrenMedicine(Element medicineElement) {
+        System.out.println("dom");
         ChildrenMedicine childrenMedicine = new ChildrenMedicine();
         childrenMedicine.setName(medicineElement.getAttribute("name"));
         childrenMedicine.setMedicineId(medicineElement.getAttribute("id"));

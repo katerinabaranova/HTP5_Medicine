@@ -1,6 +1,7 @@
 package com.baranova.drug.sax;
 
 
+import com.baranova.drug.creation.AbstractMedicineBuilder;
 import com.baranova.drug.entity.Medicine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,9 +12,9 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.IOException;
 import java.util.Set;
 
-public class MedicineSaxBuilder {
+public class MedicineSaxBuilder extends AbstractMedicineBuilder {
     static final Logger LOG= LogManager.getLogger();
-    private Set<Medicine> allmedicine;
+    private Set<Medicine> allMedicine;
     private MedicineHandler medicineHandler;
     private XMLReader reader;
     public MedicineSaxBuilder() {
@@ -27,11 +28,13 @@ public class MedicineSaxBuilder {
         }
     }
 
-    public Set<Medicine> getAllmedicine() {
-        return allmedicine;
+    @Override
+    public Set<Medicine> getAllMedicine() {
+        return allMedicine;
     }
 
-    public void buildSetAllmedicine(String fileName) {
+    @Override
+    public void buildSetAllMedicine(String fileName) {
         try {
             reader.parse(fileName);
         }
@@ -41,7 +44,7 @@ public class MedicineSaxBuilder {
         catch (IOException e) {
             LOG.error("Error IO");
         }
-        allmedicine = medicineHandler.getAllmedicine();
+        allMedicine = medicineHandler.getAllmedicine();
     }
 }
 
