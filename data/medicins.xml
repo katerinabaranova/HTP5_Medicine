@@ -60,6 +60,201 @@
         </ns:version>
         <ns:alcohol_allowed>true</ns:alcohol_allowed>
     </ns:adult_medicine>
+    
+    <ns:adult_medicine name="Noshpa" id="f56734d">
+        <ns:group>painkiller</ns:group>
+        <ns:analog>Drotoverin</ns:analog>
+        <ns:analog>Spazmol</ns:analog>
+        <ns:version>
+            <ns:version_name>pill</ns:version_name>
+            <ns:producers>Sanofi chinoin</ns:producers>
+            <ns:producers>Barr</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Box</ns:package_type>
+                <ns:quantity>20</ns:quantity>
+                <ns:price>5</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>3</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
 
 
+    <ns:adult_medicine name="Orasept" id="c453g6">
+        <ns:group>resolvent</ns:group>
+        <ns:analog>Ingalipt</ns:analog>
+        <ns:version>
+            <ns:version_name>syrop</ns:version_name>
+            <ns:producers>Sagmel</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Battle</ns:package_type>
+                <ns:quantity>250</ns:quantity>
+                <ns:price>15</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>2</ns:prescribed_amount>
+                <ns:frequency>5</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
+    <ns:children_medicine name="Anaferon" id="gb3664">
+        <ns:group>antiviral</ns:group>
+        <ns:analog>Genferon</ns:analog>
+        <ns:version>
+            <ns:version_name>capsule</ns:version_name>
+            <ns:producers>Alpha pharma</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Little box</ns:package_type>
+                <ns:quantity>10</ns:quantity>
+                <ns:price>14</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>2</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:age_from>0</ns:age_from>
+    </ns:children_medicine>
+
+    <ns:adult_medicine name="Actovegin" id="v57325">
+        <ns:group>antiviral</ns:group>
+        <ns:analog>Solkoseril</ns:analog>
+        <ns:version>
+            <ns:version_name>injection</ns:version_name>
+            <ns:producers>Nikomed</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Box of injections</ns:package_type>
+                <ns:quantity>400</ns:quantity>
+                <ns:price>400</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>5</ns:prescribed_amount>
+                <ns:frequency>1</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>false</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
+    <ns:adult_medicine name="Nimesil" id="bn6754">
+        <ns:group>painkiller</ns:group>
+        <ns:analog>Nise</ns:analog>
+        <ns:analog>Nimesylid</ns:analog>
+        <ns:version>
+            <ns:version_name>suspension</ns:version_name>
+            <ns:producers>Laboratori GUIDOTTI</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Battle</ns:package_type>
+                <ns:quantity>300</ns:quantity>
+                <ns:price>90</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>10</ns:prescribed_amount>
+                <ns:frequency>3</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>false</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
+    <ns:adult_medicine name="Paracetamolum" id="fg45632">
+        <ns:group>fever_reducer</ns:group>
+        <ns:analog>Tyiliol</ns:analog>
+        <ns:analog>Ibyprophen</ns:analog>
+        <ns:version>
+            <ns:version_name>pill</ns:version_name>
+            <ns:producers>Pharma</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Cluster</ns:package_type>
+                <ns:quantity>10</ns:quantity>
+                <ns:price>5</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>3</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
+    <ns:children_medicine id="df5347">
+        <ns:group>antibiotic</ns:group>
+        <ns:analog>Amoksicilin</ns:analog>
+        <ns:analog>Amoksiklav</ns:analog>
+        <ns:version>
+            <ns:version_name>suspension</ns:version_name>
+            <ns:producers>Bluepharma</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Battle</ns:package_type>
+                <ns:quantity>200</ns:quantity>
+                <ns:price>10</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>7</ns:prescribed_amount>
+                <ns:frequency>2</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:age_from>0</ns:age_from>
+    </ns:children_medicine>
+
+    <ns:children_medicine name="Bepanten" id="gf5563">
+        <ns:group>antiviral</ns:group>
+        <ns:analog>Depantol</ns:analog>
+        <ns:version>
+            <ns:version_name>balm</ns:version_name>
+            <ns:producers>Bayer</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Tube</ns:package_type>
+                <ns:quantity>100</ns:quantity>
+                <ns:price>8</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>10</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:age_from>0</ns:age_from>
+    </ns:children_medicine>
+
+    <ns:adult_medicine name="Centrum Adult" id="dg5368">
+        <ns:group>vitamin</ns:group>
+        <ns:analog>Vitamin Adult</ns:analog>
+        <ns:version>
+            <ns:version_name>capsule</ns:version_name>
+            <ns:producers>Alphapharm</ns:producers>
+            <ns:producers>Biovitrum</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Battle</ns:package_type>
+                <ns:quantity>200</ns:quantity>
+                <ns:price>20</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>1</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+    
+    <ns:adult_medicine name="Kagocel" id="fbj457">
+        <ns:group>antiviral</ns:group>
+        <ns:analog>Anaferon</ns:analog>
+        <ns:version>
+            <ns:version_name>pill</ns:version_name>
+            <ns:producers>Niarmedic Plus</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Box</ns:package_type>
+                <ns:quantity>20</ns:quantity>
+                <ns:price>7</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>1</ns:prescribed_amount>
+                <ns:frequency>3</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
 </ns:AllMedicine>

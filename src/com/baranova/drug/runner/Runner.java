@@ -5,6 +5,7 @@ import com.baranova.drug.creation.AbstractMedicineBuilder;
 import com.baranova.drug.creation.MedicineBuilderFactory;
 import com.baranova.drug.dom.MedicineDomBuilder;
 import com.baranova.drug.entity.Medicine;
+import com.baranova.drug.sorting.MedicineSorting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,14 +17,16 @@ public class Runner {
     public static void main (String[] args){
         try {
             MedicineBuilderFactory medicineBuilderFactory = new MedicineBuilderFactory();
-            AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("sax");
+            AbstractMedicineBuilder builder = medicineBuilderFactory.createMedicineBuilder("dom");
             builder.buildSetAllMedicine("data/medicins.xml");
             Set<Medicine> allMedicine = builder.getAllMedicine();
             for (Medicine medicine : allMedicine) {
                 System.out.println(medicine);
             }
+            MedicineSorting.sortMedicine(allMedicine);
         }catch (IllegalArgumentException e){
             LOG.error(e.getMessage());
         }
+
     }
 }
