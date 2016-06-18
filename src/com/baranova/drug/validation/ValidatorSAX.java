@@ -20,9 +20,9 @@ public class ValidatorSAX {
 
     public static void main(String[] args){
 
-        String filename = FileConstant.MedicineXML_FILE;
-        String schemaname =FileConstant.MedicineSchema_File;
-        String logname = FileConstant.LogFile;
+        String filename = FileConstant.MEDICINE_XML_FILE;
+        String schemaname =FileConstant.MEDICINE_SCHEMA_FILE;
+        String logname = FileConstant.LOG_FILE;
         Schema schema = null;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory factory = SchemaFactory.newInstance(language);

@@ -180,7 +180,7 @@
         <ns:alcohol_allowed>true</ns:alcohol_allowed>
     </ns:adult_medicine>
 
-    <ns:children_medicine id="df5347">
+    <ns:children_medicine name="Augymentin" id="df5347">
         <ns:group>antibiotic</ns:group>
         <ns:analog>Amoksicilin</ns:analog>
         <ns:analog>Amoksiklav</ns:analog>
@@ -256,5 +256,45 @@
             </ns:dosage>
         </ns:version>
         <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+
+    <ns:adult_medicine name="Omega-6" id="ff56443">
+        <ns:group>vitamin</ns:group>
+        <ns:analog>FishOil</ns:analog>
+        <ns:version>
+            <ns:version_name>capsule</ns:version_name>
+            <ns:producers>Biovail</ns:producers>
+            <ns:producers>Cadila Healthcare</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Battle</ns:package_type>
+                <ns:quantity>100</ns:quantity>
+                <ns:price>15</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>2</ns:prescribed_amount>
+                <ns:frequency>1</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>true</ns:alcohol_allowed>
+    </ns:adult_medicine>
+    
+    <ns:adult_medicine name="Sypraks" id="dfcvgf">
+        <ns:group>antibiotic</ns:group>
+        <ns:analog>Ceforal salutab</ns:analog>
+        <ns:analog>Pancef</ns:analog>
+        <ns:version>
+            <ns:version_name>suspension</ns:version_name>
+            <ns:producers>Noxxon</ns:producers>
+            <ns:medicins_package>
+                <ns:package_type>Bottle</ns:package_type>
+                <ns:quantity>100</ns:quantity>
+                <ns:price>10</ns:price>
+            </ns:medicins_package>
+            <ns:dosage>
+                <ns:prescribed_amount>5</ns:prescribed_amount>
+                <ns:frequency>2</ns:frequency>
+            </ns:dosage>
+        </ns:version>
+        <ns:alcohol_allowed>false</ns:alcohol_allowed>
     </ns:adult_medicine>
 </ns:AllMedicine>

@@ -16,7 +16,7 @@ public class AdultMedicine extends  Medicine{
         adultMed.append(", group=").append(super.getGroup());
         adultMed.append(", analogs=").append(super.getAnalogs());
         adultMed.append(", alcohol allowed=").append(alcoholAllowed).append(",").append("\n");
-        adultMed.append("\t\t versions=").append(super.getVersion());
+        adultMed.append("\t\t").append(super.getVersion());
         return adultMed.toString();
     }
 

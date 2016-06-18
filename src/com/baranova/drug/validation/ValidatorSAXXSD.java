@@ -20,8 +20,8 @@ public class ValidatorSAXXSD {
 
     public static void main(String[ ] args) {
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
-        String fileName = FileConstant.MedicineXML_FILE;
-        String schemaName = FileConstant.MedicineSchema_File;
+        String fileName = FileConstant.MEDICINE_XML_FILE;
+        String schemaName = FileConstant.MEDICINE_SCHEMA_FILE;
         SchemaFactory factory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
         try {

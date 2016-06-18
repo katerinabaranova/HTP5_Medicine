@@ -15,7 +15,7 @@ public class ChildrenMedicine extends Medicine{
         childMed.append(", group=").append(super.getGroup());
         childMed.append(", analogs=").append(super.getAnalogs());
         childMed.append(", ageFrom=").append(ageFrom).append(",").append("\n");
-        childMed.append("\t\t versions=").append(super.getVersion());
+        childMed.append("\t\t").append(super.getVersion());
         return childMed.toString();
     }
 }
