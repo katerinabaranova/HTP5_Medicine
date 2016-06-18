@@ -1,6 +1,7 @@
 package com.baranova.drug.validation;
 
 
+import com.baranova.drug.constant.FileConstant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -19,8 +20,8 @@ public class ValidatorSAXXSD {
 
     public static void main(String[ ] args) {
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
-        String fileName = "data/medicins.xml";
-        String schemaName = "data/medicins_schema.xsd";
+        String fileName = FileConstant.MedicineXML_FILE;
+        String schemaName = FileConstant.MedicineSchema_File;
         SchemaFactory factory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
         try {

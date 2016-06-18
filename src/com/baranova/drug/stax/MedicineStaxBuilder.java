@@ -235,7 +235,7 @@ public class MedicineStaxBuilder extends AbstractMedicineBuilder {
                     break;
             }
         }
-        throw new XMLStreamException("Unknown element in tag Dpsage "+name);
+        throw new XMLStreamException("Unknown element in tag Dosage "+name);
     }
 
     private String getXMLText(XMLStreamReader reader) throws XMLStreamException {

@@ -9,13 +9,11 @@ import java.util.Set;
 
 public abstract class AbstractMedicineBuilder {
     static final Logger LOG= LogManager.getLogger();
-
     protected Set<Medicine> allMedicine;
 
     public AbstractMedicineBuilder() {
         allMedicine= new HashSet<Medicine>();
     }
-
     public AbstractMedicineBuilder(Set<Medicine> allMedicine) {
         this.allMedicine = allMedicine;
     }

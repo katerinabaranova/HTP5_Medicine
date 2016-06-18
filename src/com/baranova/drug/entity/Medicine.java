@@ -26,12 +26,14 @@ public abstract class Medicine {
     public void addAnalog(String analog){ analogs.add(analog);}
     @Override
     public String toString() {
-        return "Medicins{" +
-                "name='" + name + '\'' +
-                ", group=" + group +
-                ", analogs=" + analogs +
-                ", " + version +
-                "}";
+        StringBuilder medicine=new StringBuilder("Medicins{");
+        medicine.append("name='").append(name).append('\'');
+        medicine.append(", id=").append(getMedicineId());
+        medicine.append(", group=").append(group);
+        medicine.append(", analogs=").append(analogs);
+        medicine.append(", ").append(version).append("}");
+
+        return version.toString();
     }
 }
 

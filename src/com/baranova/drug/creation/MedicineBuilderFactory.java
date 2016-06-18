@@ -14,7 +14,7 @@ public class MedicineBuilderFactory {
         DOM, STAX,SAX;
     }
 
-    public AbstractMedicineBuilder createMedicineBuilder(String typeParser) {
+    public AbstractMedicineBuilder createMedicineBuilder(String typeParser) throws IllegalArgumentException {
         TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
         switch (type) {
             case DOM:

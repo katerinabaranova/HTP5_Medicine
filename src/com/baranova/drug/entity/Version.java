@@ -28,9 +28,9 @@ public class Version {
     public String toString() {
         StringBuilder version=new StringBuilder("Version{");
         version.append("versionName='").append(versionName);
-        //version.append(", producers=").append(producers);
+        version.append(", producers=").append(producers);
         version.append(", ").append(medicinsPackage);
-        //version.append(", ").append(dosage);
+        version.append(", ").append(dosage);
         return version.toString();
     }
 }
