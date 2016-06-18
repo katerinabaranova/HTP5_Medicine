@@ -69,13 +69,23 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
         childrenMedicine.setName(medicineElement.getAttribute("name"));
         childrenMedicine.setMedicineId(medicineElement.getAttribute("id"));
         childrenMedicine.setGroup(getElementTextContent(medicineElement, "ns:group"));
-        childrenMedicine.getAnalogs().add(getElementTextContent(medicineElement,"ns:analog"));
+        NodeList analogsList=medicineElement.getElementsByTagName("ns:analog");
+        for (int i=0;i<analogsList.getLength();i++){
+            Node node=analogsList.item(i);
+            String text = node.getTextContent();
+            childrenMedicine.getAnalogs().add(text);
+        }
         childrenMedicine.setAgeFrom(Integer.parseInt(getElementTextContent(medicineElement,"ns:age_from")));
         Version version=childrenMedicine.getVersion();
 
         Element versionELement = (Element) medicineElement.getElementsByTagName("ns:version").item(0);
         version.setVersionName(getElementTextContent(versionELement, "ns:version_name"));
-        version.getProducers().add(getElementTextContent(versionELement,"ns:producers"));
+        NodeList prod=versionELement.getElementsByTagName("ns:producers");
+        for (int i=0;i<prod.getLength();i++){
+            Node node=prod.item(i);
+            String text = node.getTextContent();
+            version.getProducers().add(text);
+        }
 
         Dosage dosage=version.getDosage();
         Element dosageElement=(Element) versionELement.getElementsByTagName("ns:dosage").item(0);
@@ -95,13 +105,22 @@ public class MedicineDomBuilder extends AbstractMedicineBuilder{
         adultMedicine.setName(medicineElement.getAttribute("name"));
         adultMedicine.setMedicineId(medicineElement.getAttribute("id"));
         adultMedicine.setGroup(getElementTextContent(medicineElement, "ns:group"));
-        adultMedicine.getAnalogs().add(getElementTextContent(medicineElement,"ns:analog"));
-        adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(getElementTextContent(medicineElement,"ns:alcohol_allowed")));
+        NodeList analogsList=medicineElement.getElementsByTagName("ns:analog");
+        for (int i=0;i<analogsList.getLength();i++){
+            Node node=analogsList.item(i);
+            String text = node.getTextContent();
+            adultMedicine.getAnalogs().add(text);
+        }        adultMedicine.setAlcoholAllowed(Boolean.parseBoolean(getElementTextContent(medicineElement,"ns:alcohol_allowed")));
         Version version=adultMedicine.getVersion();
 
         Element versionELement = (Element) medicineElement.getElementsByTagName("ns:version").item(0);
         version.setVersionName(getElementTextContent(versionELement, "ns:version_name"));
-        version.getProducers().add(getElementTextContent(versionELement,"ns:producers"));
+        NodeList prod=versionELement.getElementsByTagName("ns:producers");
+        for (int i=0;i<prod.getLength();i++){
+            Node node=prod.item(i);
+            String text = node.getTextContent();
+            version.getProducers().add(text);
+        }
 
         Dosage dosage=version.getDosage();
         Element dosageElement=(Element) versionELement.getElementsByTagName("ns:dosage").item(0);
