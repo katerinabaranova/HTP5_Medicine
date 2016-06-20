@@ -90,7 +90,7 @@
             <ns:version_name>syrop</ns:version_name>
             <ns:producers>Sagmel</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>Battle</ns:package_type>
+                <ns:package_type>Bottle</ns:package_type>
                 <ns:quantity>250</ns:quantity>
                 <ns:price>15</ns:price>
             </ns:medicins_package>
@@ -148,7 +148,7 @@
             <ns:version_name>suspension</ns:version_name>
             <ns:producers>Laboratori GUIDOTTI</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>Battle</ns:package_type>
+                <ns:package_type>Bottle</ns:package_type>
                 <ns:quantity>300</ns:quantity>
                 <ns:price>90</ns:price>
             </ns:medicins_package>
@@ -188,7 +188,7 @@
             <ns:version_name>suspension</ns:version_name>
             <ns:producers>Bluepharma</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>Battle</ns:package_type>
+                <ns:package_type>Bottle</ns:package_type>
                 <ns:quantity>200</ns:quantity>
                 <ns:price>10</ns:price>
             </ns:medicins_package>
@@ -227,7 +227,7 @@
             <ns:producers>Alphapharm</ns:producers>
             <ns:producers>Biovitrum</ns:producers>
             <ns:medicins_package>
-                <ns:package_type>Battle</ns:package_type>
+                <ns:package_type>Bottle</ns:package_type>
                 <ns:quantity>200</ns:quantity>
                 <ns:price>20</ns:price>
             </ns:medicins_package>
